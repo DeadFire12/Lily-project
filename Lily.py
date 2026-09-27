@@ -1709,36 +1709,6 @@ while True:
     
     
 # =========================================================
-# CPU INFO
-# =========================================================
-
-    if tool_name == "cpu_info":
-        
-        print(
-            "Lily: Here's your CPU information:"
-        )
-
-        if isinstance(result, dict):
-
-            print(
-                f"     CPU usage: {result.get('cpu_percent', 0)}%"
-            )
-
-            print(
-                f"     CPU cores: {result.get('cpu_count', 0)}"
-            )
-
-        else:
-
-            print(
-                "     ",
-                result
-            )
-
-        continue
-    
-    
-# =========================================================
 # MEMORY INFO
 # =========================================================
 
@@ -1913,113 +1883,6 @@ while True:
     
     
 # =========================================================
-# BATTERY INFO
-# =========================================================
-
-    if tool_name == "battery_info":
-        
-        print(
-            "Lily: Here's your battery information:"
-        )
-
-        if isinstance(result, dict):
-
-            available = result.get(
-                "available",
-                False
-            )
-
-            percent = result.get(
-                "percent",
-                0
-            )
-
-            plugged = result.get(
-                "plugged",
-                False
-            )
-
-            if not available:
-
-                print(
-                    "     Battery information is not available."
-                )
-
-            else:
-
-                print(
-                    f"     Battery: {percent}%"
-                )
-
-                print(
-                    "     Charging:",
-                    "Yes" if plugged else "No"
-                )
-
-        else:
-
-            print(
-                "     ",
-                result
-            )
-
-        continue
-    
-    
-# =========================================================
-# NETWORK INFO
-# =========================================================
-
-    if tool_name == "network_info":
-        
-        print(
-            "Lily: Here's your network information:"
-        )
-
-        if isinstance(result, list):
-
-            for network in result:
-
-                name = network.get(
-                    "name",
-                    "Unknown network"
-                )
-
-                ipv4 = network.get(
-                    "ipv4",
-                    []
-                )
-
-                print()
-                print(
-                    f"     {name}"
-                )
-
-                if ipv4:
-
-                    for address in ipv4:
-
-                        print(
-                            f"     IP address: {address}"
-                        )
-
-                else:
-
-                    print(
-                        "     IP address: None"
-                    )
-
-        else:
-
-            print(
-                "     ",
-                result
-            )
-
-        continue
-    
-    
-# =========================================================
 # USER INFO
 # =========================================================
 
@@ -2052,47 +1915,6 @@ while True:
             print(
                 "Error:",
                 result["message"]
-            )
-
-        continue
-    
-    
-# =========================================================
-# DATE AND TIME
-# =========================================================
-
-    if tool_name == "datetime_info":
-        
-        if isinstance(result, dict):
-
-            day = result.get(
-                "day",
-                "Unknown day"
-            )
-
-            date = result.get(
-                "date",
-                "Unknown date"
-            )
-
-            time = result.get(
-                "time",
-                "Unknown time"
-            )
-
-            print(
-                f"Lily: It's {day}, {date}."
-            )
-
-            print(
-                f"Lily: The current time is {time}."
-            )
-
-        else:
-
-            print(
-                "Lily:",
-                result
             )
 
         continue
