@@ -1,0 +1,8 @@
+{
+  "assistant_name": "Lily",
+  "compatibility_enabled": true,
+  "plugin_autoload": true,
+  "action_autoload": true,
+  "memory_enabled": true,
+  "undo_enabled": true
+}
