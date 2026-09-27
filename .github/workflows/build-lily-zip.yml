@@ -1,0 +1,21 @@
+name: Build Lily ZIP
+
+on:
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create release ZIP
+        run: |
+          rm -rf .git .github __pycache__ */__pycache__ backups
+          rm -f memory.json learning.json state.json main.log
+          zip -r Lily-repaired.zip . -x "*.pyc" "*__pycache__*"
+      - name: Upload ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: Lily-repaired
+          path: Lily-repaired.zip
